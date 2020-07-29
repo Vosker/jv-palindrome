@@ -21,6 +21,18 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
-        return false;
+        String palindrome = text.toLowerCase().replaceAll("[^a-z0-9]", "");
+        int helper = palindrome.length();
+        char[] charArr = new char[helper / 2];
+        char[] revCharArr = new char[helper / 2];
+        try {
+            palindrome.getChars(0, helper / 2, charArr, 0);
+            palindrome.getChars(helper / 2 + helper % 2, helper, revCharArr, 0);
+        } catch (Exception ignored) {
+            System.out.println("");
+        }
+        StringBuilder stringBuilder1 = new StringBuilder(String.valueOf(revCharArr));
+
+        return String.valueOf(charArr).equals(stringBuilder1.reverse().toString());
     }
 }
