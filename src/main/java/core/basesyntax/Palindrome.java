@@ -23,16 +23,11 @@ public class Palindrome {
     public boolean isPalindrome(String text) {
         String palindrome = text.toLowerCase().replaceAll("[^a-z0-9]", "");
         int helper = palindrome.length();
-        char[] charArr = new char[helper / 2];
-        char[] revCharArr = new char[helper / 2];
-        try {
-            palindrome.getChars(0, helper / 2, charArr, 0);
-            palindrome.getChars(helper / 2 + helper % 2, helper, revCharArr, 0);
-        } catch (Exception ignored) {
-            System.out.println("");
-        }
-        StringBuilder stringBuilder1 = new StringBuilder(String.valueOf(revCharArr));
+        String reversed = palindrome.substring(helper / 2 + helper % 2, helper);
+        palindrome = palindrome.substring(0,helper/2);
 
-        return String.valueOf(charArr).equals(stringBuilder1.reverse().toString());
+        StringBuilder stringBuilder1 = new StringBuilder(reversed).reverse();
+
+        return palindrome.contentEquals(stringBuilder1);
     }
 }
