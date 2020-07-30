@@ -22,9 +22,9 @@ public class Palindrome {
      */
     public boolean isPalindrome(String text) {
         String palindrome = text.toLowerCase().replaceAll("[^a-z0-9]", "");
-        int helper = palindrome.length();
-        String reversed = palindrome.substring(helper / 2 + helper % 2, helper);
-        palindrome = palindrome.substring(0,helper/2);
+        int palindromeLength = palindrome.length();
+        String reversed = palindrome.substring(palindromeLength / 2 + palindromeLength % 2, palindromeLength);
+        palindrome = palindrome.substring(0, palindromeLength / 2);
 
         StringBuilder stringBuilder1 = new StringBuilder(reversed).reverse();
 
