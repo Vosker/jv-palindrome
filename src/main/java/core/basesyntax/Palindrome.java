@@ -26,8 +26,8 @@ public class Palindrome {
         String reversed = palindrome.substring(length / 2 + length % 2, length);
         palindrome = palindrome.substring(0, length / 2);
 
-        StringBuilder stringBuilder1 = new StringBuilder(reversed).reverse();
+        StringBuilder reversedString = new StringBuilder(reversed).reverse();
 
-        return palindrome.contentEquals(stringBuilder1);
+        return palindrome.contentEquals(reversedString);
     }
 }
