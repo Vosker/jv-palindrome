@@ -22,11 +22,7 @@ public class Palindrome {
      */
     public boolean isPalindrome(String text) {
         String palindrome = text.toLowerCase().replaceAll("[^a-z0-9]", "");
-        int length = palindrome.length();
-        String reversed = palindrome.substring(length / 2 + length % 2, length);
-        palindrome = palindrome.substring(0, length / 2);
-
-        StringBuilder reversedString = new StringBuilder(reversed).reverse();
+        StringBuilder reversedString = new StringBuilder(palindrome).reverse();
 
         return palindrome.contentEquals(reversedString);
     }
